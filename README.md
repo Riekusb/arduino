@@ -1,1 +1,1 @@
-# arduino
+Hier bevinden zich de files die we gebruiken tijdens de introductie cursus microprocesoren op de Glasbaars. De cursus is zo als gezegd een intoductie cursus. Het doel is je een basis kennis te geven over de Arduino. Wanneer je interesse is gewekt,dan kun je door eigen studie je verder verdiepen. 
