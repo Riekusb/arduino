@@ -18,7 +18,7 @@ using ace_time::acetime_t;
 using ace_time::TimeZone;
 using ace_time::LocalDateTime;
 using ace_time::clock::DS3231Clock;
-using ace_time::zonedb::kZoneAmerica_Los_Angeles;
+using ace_time::zonedb::kZoneBufSizeEurope_Berlin;
 
 // ESP32 does not define SERIAL_PORT_MONITOR
 #ifndef SERIAL_PORT_MONITOR
