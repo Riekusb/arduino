@@ -1,5 +1,6 @@
 //cursus Microprocesoren
 //Riekus Bennink
+//AV de Glasbaars
 
 #define GETAL_1 7
 #define GETAL_2 3

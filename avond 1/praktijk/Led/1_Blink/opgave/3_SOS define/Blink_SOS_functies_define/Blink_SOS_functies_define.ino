@@ -1,7 +1,7 @@
 /*
-  Morse SOS
   Cursus micro processoren
   Riekus Bennink
+  AV de Blasbaars
 */
 #define PUNT_DELAY 100
 #define STREEP_DELAY 300
@@ -16,7 +16,7 @@
 
 void punt() {
   digitalWrite(LED_BUILTIN, HIGH);  // onsteek de led
-  delay(PUNT_DELAY);                       // wacht
+  delay(PUNT_DELAY);                // wacht
   digitalWrite(LED_BUILTIN, LOW);   // doof the led
   delay(PUNT_DELAY);
 }

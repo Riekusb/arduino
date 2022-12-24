@@ -28,19 +28,19 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);   // doof the led
   delay(100);
   // streep 1
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(500);
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LED_BUILTIN, HIGH);  // onsteek de led
+  delay(500);                       // wacht
+  digitalWrite(LED_BUILTIN, LOW);   // doof the led
   delay(500);
   //streep 2
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(500);
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LED_BUILTIN, HIGH); // onsteek de led
+  delay(500);                      // wacht
+  digitalWrite(LED_BUILTIN, LOW);  // doof the led
   delay(500);
   //streep 3
- digitalWrite(LED_BUILTIN, HIGH);
-  delay(500);
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LED_BUILTIN, HIGH);  // onsteek de led
+  delay(500);                      // wacht
+  digitalWrite(LED_BUILTIN, LOW);  // doof the led
   delay(500);
   //punt 1
   digitalWrite(LED_BUILTIN, HIGH);  // onsteek de led

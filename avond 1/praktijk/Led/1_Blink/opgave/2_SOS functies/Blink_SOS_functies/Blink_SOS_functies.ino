@@ -1,7 +1,7 @@
 /*
-  Morse SOS
   Cursus micro processoren
   Riekus Bennink
+  AV de Glasbaars
 */
 #define PUNT 100
 #define STREEP 300
@@ -14,9 +14,9 @@ void punt() {
 }
 
 void streep() {
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(STREEP);
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LED_BUILTIN, HIGH);  // onsteek de led
+  delay(STREEP);                    // wacht
+  digitalWrite(LED_BUILTIN, LOW);   // doof the led
   delay(STREEP);
 }
 

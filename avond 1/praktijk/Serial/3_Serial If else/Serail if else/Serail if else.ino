@@ -1,6 +1,6 @@
 /* Cursus microprocessoren
 Riekus Bennink
-intro tot Serial
+AV de Glasbaars
 */
 
 void setup() {
@@ -12,7 +12,7 @@ void setup() {
 void loop() {
   // Als ik wat ontvangen heb dan ga ik dat terug zenden
   if (Serial.available()) {
-    int ontvangen = Serial.parseInt(); // Wat ontvangen is wordt een Integer gemaakt
+    int ontvangen = Serial.parseInt(); // Wat oik heb ontvangen is maak ik een integer
     if (ontvangen == 4 ) {
       // Als ik 4 heb ontvangen dan doe ik dit
       Serial.println("geraden !!!");
