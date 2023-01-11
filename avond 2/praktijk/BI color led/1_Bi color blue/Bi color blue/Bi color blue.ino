@@ -10,8 +10,8 @@ void blauw(){
  digitalWrite(BLUE_PIN,HIGH);
 }
 
-void rood(){
- digitalWrite(RED_PIN, HIGH);
+void uit(){
+digitalWrite(RED_PIN, LOW);
  digitalWrite(BLUE_PIN,LOW);
 }
 
@@ -24,7 +24,7 @@ void setup() {
 void loop() {
   blauw();
   delay(DELAY);
-  rood();
+  uit();
   delay(DELAY);
 
 

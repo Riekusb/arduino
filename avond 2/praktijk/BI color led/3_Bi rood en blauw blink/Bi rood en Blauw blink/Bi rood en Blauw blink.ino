@@ -15,6 +15,8 @@ void rood(){
  digitalWrite(BLUE_PIN,LOW);
 }
 
+
+
 void setup() {
  pinMode(BLUE_PIN,OUTPUT);
  pinMode(RED_PIN,OUTPUT);

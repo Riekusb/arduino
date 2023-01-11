@@ -5,25 +5,35 @@
 // We hebben de EEPROM library nodig
 #include <EEPROM.h>
 
-struct DATA {  //definitie van een structuur/record
-  int getal = 66;
-  String naam = "Riekus";
-};
+int getal =0;
 
-DATA data;
+
+void slaDataOp() {
+  Serial.println("Data wordt opgeslagen in de EEPROM");
+  EEPROM.put(1, getal);
+  EEPROM.write(0, 1);
+}
+
+int leesData() {
+  int waarde;
+  if (EEPROM.read(0) == 1) {
+    EEPROM.get(1, waarde);
+  }
+ return waarde;
+}
 
 void setup() {
   Serial.begin(9600);
-  if (EEPROM.read(0) == 13) {  // zomaar een getal om te testen of er wat geschreven is
-  // De EEPROM heeft data opgeslagen
-    EEPROM.get(1, data);
-    Serial.println(data.naam);
-    Serial.println(data.getal);
-  } else {
-    EEPROM.put(1, data);
-    EEPROM.write(0, 13);
-  }
+  Serial.println(" Test EEPROM");
+  getal=leesData();
+  Serial.println(getal);
+
+
 }
 
 void loop() {
+  if (Serial.available()) {
+    getal = Serial.parseInt();
+    slaDataOp();
+  }
 }

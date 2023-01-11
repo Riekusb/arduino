@@ -3,7 +3,6 @@
 
 #define RELAY_1 6
 #define RELAY_2 7
-#define LDR A0
 int waarde;
 
 void setup() {
