@@ -7,7 +7,7 @@ void setup() {
   //Hier zetten we de baud rate van de USB/Com poort
   Serial.begin(115200);
 
-  Serial.println("Hallo hoe het je");
+  Serial.println("Hallo hoe heet je?");
 }
 
 void loop() {
