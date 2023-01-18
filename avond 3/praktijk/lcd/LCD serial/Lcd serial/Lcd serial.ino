@@ -27,8 +27,8 @@ void loop() {
   // (note: line 1 is the second row, since counting begins with 0):
   if(Serial.available()){
     lcd.setCursor(0, 0);
-    lcd.print("                ");  // pring
-    lcd.setCursor(0, 0);
+    lcd.print("                ");  // print
+    lcd.setCursor(0, 0);   // set de cursor lcd
     lcd.print("Hallo ");
     lcd.print(Serial.readString());
   }
