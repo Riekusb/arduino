@@ -3,9 +3,15 @@
   Riekus Bennink
   AV de Blasbaars
 */
+
+// kies welke opgave je wilt bekijken
+#define OPGAVE_1 1 // morse uitbreiding switch op een char bv 'a'
+#define OPGAVE_2 0// commplete morse vertaler
+
+
 #define PUNT_DELAY 200
 #define STREEP_DELAY 400
-#define MORSE_WORD_DELAY 500
+#define MORSE_WORD_DELAY 400
 #define LETTER_DELAY 100
 
 #define PUNT punt();
@@ -54,7 +60,7 @@
 
 // end morse codes
 
-String serialReceivedData="";
+String serialReceivedData = "";
 
 void punt() {
   digitalWrite(LED_BUILTIN, HIGH);  // onsteek de led
@@ -73,118 +79,124 @@ void streep() {
 void blinkChar(char letter) {
   switch (letter) {
     case 'a':
-A_MORSE
+      A_MORSE
       break;
     case 'b':
-B_MORSE
+      B_MORSE
       break;
     case 'c':
-C_MORSE
+      C_MORSE
       break;
     case 'd':
-D_MORSE
+      D_MORSE
       break;
     case 'e':
-E_MORSE
+      E_MORSE
       break;
     case 'f':
-F_MORSE
+      F_MORSE
       break;
     case 'g':
-G_MORSE
+      G_MORSE
       break;
     case 'h':
-H_MORSE
+      H_MORSE
       break;
     case 'i':
-I_MORSE
+      I_MORSE
       break;
     case 'j':
-J_MORSE
+      J_MORSE
       break;
     case 'k':
-K_MORSE
+      K_MORSE
       break;
     case 'l':
-L_MORSE
+      L_MORSE
       break;
     case 'm':
-M_MORSE
+      M_MORSE
       break;
     case 'n':
-N_MORSE
+      N_MORSE
       break;
     case 'o':
-O_MORSE
+      O_MORSE
       break;
     case 'p':
-P_MORSE
+      P_MORSE
       break;
     case 'q':
-Q_MORSE
+      Q_MORSE
       break;
     case 'r':
-R_MORSE
+      R_MORSE
       break;
     case 's':
-S_MORSE
+      S_MORSE
       break;
     case 't':
-T_MORSE
+      T_MORSE
       break;
     case 'u':
-U_MORSE
+      U_MORSE
       break;
     case 'v':
-V_MORSE
+      V_MORSE
       break;
     case 'w':
-W_MORSE
+      W_MORSE
       break;
     case 'x':
-X_MORSE
+      X_MORSE
       break;
     case 'y':
-Y_MORSE
+      Y_MORSE
       break;
     case 'z':
 
-Z_MORSE
+      Z_MORSE
       break;
     case '1':
-MORSE_1
+      MORSE_1
       break;
     case '2':
-MORSE_2
+      MORSE_2
       break;
     case '3':
-MORSE_3
+      MORSE_3
       break;
     case '4':
-MORSE_4
+      MORSE_4
       break;
     case '5':
-MORSE_5
+      MORSE_5
       break;
     case '6':
-MORSE_6
+      MORSE_6
       break;
     case '7':
-MORSE_7
+      MORSE_7
       break;
     case '8':
-MORSE_8
+      MORSE_8
       break;
     case '9':
-MORSE_9
+      MORSE_9
       break;
     case '0':
-MORSE_0
+      MORSE_0
       break;
+    default:
+      // wanneer geen geen letter / cijfer gevonden dus een spatie kom ik hier
+      // dit geeft aan dat ik dan alleen een delay doe die dan samen met de de Letterdelay
+      // de totale delayhier is dan 400+ 100 = 500 ms
+      delay(MORSE_WORD_DELAY);
   }
   delay(LETTER_DELAY);
 }
 
+#if OPGAVE_1
 void sos() {
   blinkChar('s');
   blinkChar('o');
@@ -201,22 +213,37 @@ void riekus() {
   blinkChar('s');
   delay(MORSE_WORD_DELAY);
 }
+#endif
 
 void setup() {
+#if OPGAVE_2
   Serial.begin(9600);
-  
+  if(Serial){
+  Serial.println("Geef een zin die ik moet vertalen naar morse");
+  }
+#endif
+
   // set digital pin LED_BUILTIN to output.
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 
 void loop() {
-  if(Serial.available()){
-    serialReceivedData=Serial.readString();
-    for (int i=0; i<serialReceivedData.length(); i++) {
-       blinkChar(serialReceivedData.charAt(i));
+#if OPGAVE_1
+  // dit is de oplossing die je met een switch moest maken
+  sos();
+  riekus();
+#endif
+
+
+#if OPGAVE_2
+  if (Serial.available()) {
+    serialReceivedData = Serial.readString();
+    serialReceivedData.toLowerCase();  // maakt alle hoofletters kleine letters zie reference
+    for (int i = 0; i < serialReceivedData.length(); i++) { // fore loop zie reference
+      Serial.println("Zend "+String(serialReceivedData.charAt(i)));
+      blinkChar(serialReceivedData.charAt(i));// get char op positie  zie reference
     }
   }
-  
- 
+#endif
 }
