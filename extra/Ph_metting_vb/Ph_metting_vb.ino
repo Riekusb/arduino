@@ -42,6 +42,7 @@ void leesData() {
     Serial.println("cal4 :" + String(_Data.cal4));
     Serial.println("cal7 :" + String(_Data.cal7));
   } else{
+    Serial.println("EEprom was geen 1");
     slaDataOp();
   }
 }
@@ -56,8 +57,14 @@ bool flterDeAnalogeWaarde(void *) {
 }
 
 bool berekenDePh() {
+  // bereken de lijn door twee punt namelijk punt(4,cal4) en punt (7,cal7)
+  // vergelijking lijn is y=ax+b
+  // a = richtingscoefficient
   float a = (7.00 - 4.00) / (_Data.cal7 - _Data.cal4);  // richtingscoefficient
-  _PhWaarde = a * _GefilterdAnalogeWaarde;
+  // de vergelijking lijn wordt dan y = 3/(cal7-cal4)
+  // om b te bereken vullen een punt in bv punt(4,cal4)
+  float b = 4 -a*_Data.cal4;
+  _PhWaarde = a * _GefilterdAnalogeWaarde +b;
   Serial.println("pH :" + String(_PhWaarde, 2));
 }
 
