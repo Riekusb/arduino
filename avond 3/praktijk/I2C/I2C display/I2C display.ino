@@ -38,8 +38,6 @@ void setup() {
  set1604Cursor(3, 0);
   lcd.print("Licht 80%");
 
-
-
 }
 
 
